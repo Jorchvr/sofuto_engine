@@ -183,6 +183,8 @@ GEM
     parser (3.3.10.2)
       ast (~> 2.4.1)
       racc
+    pg (1.6.3-x64-mingw-ucrt)
+    pg (1.6.3-x86_64-linux)
     pp (0.6.3)
       prettyprint
     prettyprint (0.2.0)
@@ -360,6 +362,7 @@ DEPENDENCIES
   jbuilder
   jsbundling-rails
   kamal
+  pg
   propshaft
   puma (>= 5.0)
   rails (~> 8.0.4)
@@ -368,13 +371,16 @@ DEPENDENCIES
   solid_cable
   solid_cache
   solid_queue
-  sqlite3 (>= 2.1)
+  sqlite3
   stimulus-rails
   tailwindcss-rails (~> 4.4)
   thruster
   turbo-rails
   tzinfo-data
   web-console
+
+RUBY VERSION
+   ruby 3.4.5p51
 
 BUNDLED WITH
    2.6.9
