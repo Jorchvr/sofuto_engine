@@ -1,0 +1,118 @@
+<div class="bg-white min-h-screen font-sans text-gray-900 pb-20">
+
+  <section class="relative h-[70vh] flex items-center justify-center overflow-hidden bg-gray-100">
+    <div class="absolute inset-0 z-0">
+      <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=2070&auto=format&fit=crop" 
+           class="w-full h-full object-cover opacity-80 grayscale hover:grayscale-0 transition-all duration-1000" 
+           alt="Propiedad de Lujo">
+    </div>
+    <div class="relative z-10 text-center px-4">
+      <h1 class="text-5xl md:text-7xl font-light tracking-[0.3em] uppercase mb-4">Mérida</h1>
+      <p class="text-sm md:text-base font-light tracking-[0.5em] text-gray-600 uppercase">Residencias de Autor</p>
+    </div>
+  </section>
+
+  <section class="max-w-7xl mx-auto px-6 py-24">
+    <div class="flex flex-col md:flex-row justify-between items-end mb-16 gap-4">
+      <div>
+        <h2 class="text-xs font-bold tracking-[0.4em] uppercase text-gray-400 mb-2">Portfolio</h2>
+        <p class="text-3xl font-light">Propiedades Destacadas</p>
+      </div>
+      <div class="w-24 h-px bg-gray-200 hidden md:block mb-4"></div>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+      <div class="group cursor-pointer">
+        <div class="overflow-hidden bg-gray-100 aspect-[4/5] mb-6">
+          <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?q=80&w=2075&auto=format&fit=crop" 
+               class="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700">
+        </div>
+        <h3 class="text-lg font-light tracking-widest uppercase">Casa Nómada</h3>
+        <p class="text-gray-400 text-sm mt-1">$4,200,000 MXN</p>
+      </div>
+
+      <div class="group cursor-pointer">
+        <div class="overflow-hidden bg-gray-100 aspect-[4/5] mb-6">
+          <img src="https://images.unsplash.com/photo-1600607687940-47a0f9259d47?q=80&w=2070&auto=format&fit=crop" 
+               class="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700">
+        </div>
+        <h3 class="text-lg font-light tracking-widest uppercase">Villa Serene</h3>
+        <p class="text-gray-400 text-sm mt-1">$6,850,000 MXN</p>
+      </div>
+
+      <div class="group cursor-pointer">
+        <div class="overflow-hidden bg-gray-100 aspect-[4/5] mb-6">
+          <img src="https://images.unsplash.com/photo-1600047509807-ba8f99d2cdde?q=80&w=1984&auto=format&fit=crop" 
+               class="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700">
+        </div>
+        <h3 class="text-lg font-light tracking-widest uppercase">Estudio Minimal</h3>
+        <p class="text-gray-400 text-sm mt-1">$2,900,000 MXN</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="max-w-7xl mx-auto px-6 py-24 border-t border-gray-100">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-20">
+      
+      <div>
+        <h2 class="text-3xl font-light mb-12">Hablemos de tu próximo espacio.</h2>
+        <form class="space-y-8">
+          <div class="border-b border-gray-200 pb-2">
+            <label class="text-[10px] uppercase tracking-[0.3em] text-gray-400 block mb-1">Nombre</label>
+            <input type="text" class="w-full bg-transparent outline-none text-sm font-light py-2" placeholder="Tu nombre completo">
+          </div>
+          <div class="border-b border-gray-200 pb-2">
+            <label class="text-[10px] uppercase tracking-[0.3em] text-gray-400 block mb-1">Email</label>
+            <input type="email" class="w-full bg-transparent outline-none text-sm font-light py-2" placeholder="ejemplo@correo.com">
+          </div>
+          <div class="border-b border-gray-200 pb-2">
+            <label class="text-[10px] uppercase tracking-[0.3em] text-gray-400 block mb-1">Mensaje</label>
+            <textarea class="w-full bg-transparent outline-none text-sm font-light py-2" rows="3" placeholder="¿En qué propiedad estás interesado?"></textarea>
+          </div>
+          <button class="px-10 py-4 bg-black text-white text-[10px] uppercase tracking-[0.4em] hover:bg-gray-800 transition-colors">
+            Enviar Solicitud
+          </button>
+        </form>
+      </div>
+
+      <div class="flex flex-col">
+        <div class="flex items-center justify-between mb-6">
+          <h3 class="text-[10px] uppercase tracking-[0.3em] text-gray-400">Ubicación de Oficinas</h3>
+          <p class="text-xs text-gray-600">Mérida, Yucatán</p>
+        </div>
+        <div id="map" class="w-full h-full min-h-[400px] bg-gray-50 grayscale hover:grayscale-0 transition-all duration-500"></div>
+      </div>
+
+    </div>
+  </section>
+</div>
+
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+<script>
+  document.addEventListener('turbo:load', function() {
+    // Evitamos duplicar el mapa al navegar con Turbo
+    const mapContainer = document.getElementById('map');
+    if (mapContainer && !mapContainer._leaflet_id) {
+      
+      // Coordenadas aproximadas de Mérida, Yucatán
+      const meridaCoord = [20.96737, -89.6237]; 
+      
+      const map = L.map('map', {
+        center: meridaCoord,
+        zoom: 13,
+        scrollWheelZoom: false // Para no interrumpir el scroll de la página
+      });
+
+      // Estilo de mapa minimalista (CartoDB Positron es más limpio que el estándar)
+      L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
+        attribution: '&copy; OpenStreetMap contributors'
+      }).addTo(map);
+
+      // Marcador personalizado
+      const marker = L.marker(meridaCoord).addTo(map);
+      marker.bindPopup("<b class='font-sans'>Sofuto Real Estate</b><br>Oficinas Centrales.").openPopup();
+    }
+  });
+</script>

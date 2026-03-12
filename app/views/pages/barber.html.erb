@@ -1,0 +1,177 @@
+<div class="min-h-screen bg-[#F8F9FA] text-gray-800 font-sans pb-20">
+
+  <nav class="bg-white border-b border-gray-100 px-8 py-4 flex justify-between items-center sticky top-0 z-50 shadow-sm">
+    <div class="flex items-center gap-3">
+      <div class="w-10 h-10 bg-black rounded-full flex items-center justify-center text-white font-bold">B</div>
+      <h1 class="text-xl font-bold tracking-tight">Barbería <span class="text-gray-400">Pro</span></h1>
+    </div>
+    
+    <div class="flex items-center gap-6">
+      <div class="flex gap-3 text-gray-400">
+        <i class="fab fa-facebook hover:text-black transition-colors"></i>
+        <i class="fas fa-globe hover:text-black transition-colors"></i>
+        <i class="fab fa-instagram hover:text-black transition-colors"></i>
+      </div>
+      <div class="h-8 w-px bg-gray-100"></div>
+      <div class="flex items-center gap-2 cursor-pointer group">
+        <span class="text-sm font-medium group-hover:text-black">Federico</span>
+        <div class="w-8 h-8 bg-gray-200 rounded-full flex items-center justify-center">
+          <svg class="w-4 h-4 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <main class="max-w-[1400px] mx-auto p-6 lg:p-10 grid grid-cols-1 lg:grid-cols-12 gap-10">
+    
+    <div class="lg:col-span-8 space-y-10">
+      
+      <div class="relative h-48 rounded-[2rem] overflow-hidden shadow-xl">
+        <img src="https://images.unsplash.com/photo-1503951914875-452162b0f3f1?q=80&w=2070&auto=format&fit=crop" 
+             class="w-full h-full object-cover" alt="Barber Shop">
+        <div class="absolute inset-0 bg-gradient-to-r from-black/60 to-transparent flex items-center px-12">
+          <h2 class="text-white text-4xl font-black uppercase tracking-tighter">Estilo <br>Profesional</h2>
+        </div>
+      </div>
+
+      <section>
+        <h3 class="text-lg font-bold mb-6 tracking-tight">¿Quieres agendar con un profesional en particular?</h3>
+        <div class="flex gap-8 overflow-x-auto pb-4 custom-scrollbar">
+          <% [["Camilo", "https://i.pravatar.cc/150?u=1"], ["Diego", "https://i.pravatar.cc/150?u=2"], 
+              ["Jaime", "https://i.pravatar.cc/150?u=3"], ["Ángel", "https://i.pravatar.cc/150?u=4"]].each do |name, img| %>
+            <div class="flex flex-col items-center gap-3 group cursor-pointer">
+              <div class="w-16 h-16 rounded-full p-1 border-2 border-transparent group-hover:border-black transition-all">
+                <img src="<%= img %>" class="w-full h-full rounded-full object-cover grayscale group-hover:grayscale-0 transition-all">
+              </div>
+              <span class="text-sm font-medium text-gray-500 group-hover:text-black"><%= name %></span>
+            </div>
+          <% end %>
+        </div>
+      </section>
+
+      <section class="space-y-6">
+        <div class="bg-gray-100 px-6 py-3 rounded-xl inline-block">
+          <span class="text-sm font-bold uppercase tracking-widest text-gray-500">Barbas</span>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div class="bg-white border border-gray-100 rounded-[2rem] p-8 shadow-sm hover:shadow-md transition-shadow flex flex-col justify-between">
+            <div>
+              <div class="flex justify-between items-start mb-2">
+                <h4 class="text-xl font-bold">Corte de barba</h4>
+                <span class="text-gray-400 text-sm">30 min</span>
+              </div>
+              <p class="text-2xl font-black mb-6">$15.000</p>
+              
+              <div class="flex -space-x-2 mb-6">
+                <% 3.times do |i| %>
+                  <img src="https://i.pravatar.cc/100?img=<%= i+10 %>" class="w-10 h-10 rounded-full border-2 border-white object-cover">
+                <% end %>
+              </div>
+              <p class="text-sm text-gray-400 leading-relaxed mb-8">
+                Recorte y diseño de la barba según las preferencias del cliente, incluyendo afeitado de contornos y perfilado.
+              </p>
+            </div>
+            <button class="w-full bg-[#2D3436] hover:bg-black text-white py-4 rounded-2xl font-bold text-sm flex items-center justify-center gap-2 transition-all">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M12 4v16m8-8H4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+              Agregar servicio
+            </button>
+          </div>
+
+          <div class="bg-white border border-gray-100 rounded-[2rem] p-8 shadow-sm hover:shadow-md transition-shadow relative overflow-hidden">
+            <div class="absolute top-0 right-0 bg-[#2D3436] text-white px-4 py-1 text-[10px] font-bold uppercase tracking-widest">Descuento pagando en línea</div>
+            <h4 class="text-xl font-bold mt-4">Corte de cabello clásico</h4>
+            <span class="text-gray-400 text-sm">60 min</span>
+            <div class="flex items-center gap-3 my-4">
+              <p class="text-2xl font-black">$18.000</p>
+              <p class="text-sm text-gray-300 line-through">Normal: $20.000</p>
+            </div>
+            <div class="flex -space-x-2 mb-6">
+              <% 3.times do |i| %>
+                <img src="https://i.pravatar.cc/100?img=<%= i+20 %>" class="w-10 h-10 rounded-full border-2 border-white object-cover">
+              <% end %>
+            </div>
+            <p class="text-sm text-gray-400 leading-relaxed">Un corte de cabello tradicional que incluye lavado, peinado y estilo clásico.</p>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <div class="lg:col-span-4">
+      <div class="bg-white border border-gray-100 rounded-[3rem] shadow-2xl p-2 sticky top-28 overflow-hidden">
+        <div class="bg-white rounded-[2.5rem] overflow-hidden flex flex-col h-[700px]">
+          
+          <div class="p-6 pt-10">
+            <div class="flex justify-between items-center mb-8">
+              <span class="text-lg font-bold">Junio, 2026</span>
+              <svg class="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" stroke-width="2"></path></svg>
+            </div>
+            
+            <div class="flex justify-between text-center mb-8">
+              <% [["Lun", 19], ["Mar", 20], ["Mié", 21], ["Jue", 22], ["Vie", 23, true], ["Sáb", 24], ["Dom", 25]].each do |day, num, active| %>
+                <div class="flex flex-col gap-2">
+                  <span class="text-[10px] uppercase font-bold text-gray-400"><%= day %></span>
+                  <span class="w-8 h-8 flex items-center justify-center rounded-full text-sm font-bold <%= active ? 'bg-black text-white shadow-lg' : 'text-gray-800' %>">
+                    <%= num %>
+                  </span>
+                </div>
+              <% end %>
+            </div>
+
+            <div class="flex items-center gap-3 border-y border-gray-50 py-4 mb-6">
+              <img src="https://i.pravatar.cc/100?u=1" class="w-10 h-10 rounded-full object-cover">
+              <span class="text-sm font-bold">Camilo</span>
+              <svg class="ml-auto w-4 h-4 text-gray-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M9 5l7 7-7 7" stroke-width="2"></path></svg>
+            </div>
+
+            <div class="space-y-6 relative">
+              <div class="flex gap-4">
+                <span class="text-[10px] text-gray-400 font-bold w-10">09:00</span>
+                <div class="flex-1 bg-green-100 border-l-4 border-green-500 p-4 rounded-r-xl">
+                  <p class="text-[10px] font-bold text-green-700 uppercase">09:00 - 11:00</p>
+                  <p class="text-sm font-bold text-green-900">Cristian Rodríguez</p>
+                  <p class="text-[10px] text-green-600">Lavado, hidratación y corte de barba</p>
+                </div>
+              </div>
+
+              <div class="flex gap-4">
+                <span class="text-[10px] text-gray-400 font-bold w-10">11:00</span>
+                <div class="flex-1 bg-purple-100 border-l-4 border-purple-500 p-4 rounded-r-xl">
+                  <p class="text-[10px] font-bold text-purple-700 uppercase">11:00 - 12:00</p>
+                  <p class="text-sm font-bold text-purple-900">Rodrigo Torres</p>
+                  <p class="text-[10px] text-purple-600">Corte de cabello clásico</p>
+                </div>
+              </div>
+
+              <button class="absolute bottom-4 right-4 w-12 h-12 bg-indigo-600 text-white rounded-full flex items-center justify-center shadow-xl hover:scale-110 transition-transform">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M12 4v16m8-8H4" stroke-width="2.5"></path></svg>
+              </button>
+            </div>
+          </div>
+
+          <div class="mt-auto border-t border-gray-100 p-4 flex justify-between px-8">
+            <div class="flex flex-col items-center gap-1 text-indigo-600">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" stroke-width="2"></path></svg>
+              <span class="text-[8px] font-bold uppercase">Agenda</span>
+            </div>
+            <div class="flex flex-col items-center gap-1 text-gray-300">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" stroke-width="2"></path></svg>
+              <span class="text-[8px] font-bold uppercase">Clientes</span>
+            </div>
+            <div class="flex flex-col items-center gap-1 text-gray-300">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" stroke-width="2"></path></svg>
+              <span class="text-[8px] font-bold uppercase">Config</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <style>
+    .custom-scrollbar::-webkit-scrollbar { height: 4px; }
+    .custom-scrollbar::-webkit-scrollbar-track { background: transparent; }
+    .custom-scrollbar::-webkit-scrollbar-thumb { background: rgba(0,0,0,0.05); border-radius: 10px; }
+    .perspective-1000 { perspective: 1000px; }
+  </style>
+</div>
