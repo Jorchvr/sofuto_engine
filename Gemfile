@@ -3,7 +3,7 @@ source "https://rubygems.org"
 # Especificamos la versión de Ruby que está usando Render según tus logs
 ruby "3.4.5"
 
-gem "rails", "~> 8.0.4"
+gem "rails", "~> 8.1.2"
 
 # Asset pipeline moderno
 gem "propshaft"
